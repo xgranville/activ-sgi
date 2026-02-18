@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Activ SGI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #EE4248;
+            --color-dark: #555555;
+            --color-bg: #F4F4F4;
+            --color-white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: var(--color-white);
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--color-primary);
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 180px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            color: var(--color-dark);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-dark);
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .btn-login {
+            width: 100%;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            background-color: #d6373d;
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .error-msg {
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <img src="https://activtecnologia.com.br/assets/img/logo.png" alt="Activ SGI" class="logo">
+        
+        <h2>Acesso ao Sistema</h2>
+        
+        <p id="errorMessage" class="error-msg">Usuário ou senha inválidos.</p>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">USUÁRIO</label>
+                <input type="text" id="username" class="input-field" placeholder="Digite seu usuário" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">SENHA</label>
+                <input type="password" id="password" class="input-field" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+
+        <p class="footer-text">Activ SGI - Gestão Inteligente de Ativos</p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            const error = document.getElementById('errorMessage');
+
+            // Lógica de simulação de login
+            // Substitua pelos seus critérios reais se necessário
+            if (user === "activ" && pass === "activ+-") {
+                // Salva que o usuário está logado
+                sessionStorage.setItem('isLogged', 'true');
+                
+                // Redireciona para a página principal
+                window.location.href = 'proposta.html';
+            } else {
+                error.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
